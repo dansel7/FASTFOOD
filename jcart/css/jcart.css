@@ -1,0 +1,92 @@
+/*
+jCart v1.3
+http://conceptlogic.com/jcart/
+*/
+
+#jcart * { margin:0; padding:0; font-family:arial, tahoma, verdana, sans-serif; }
+#jcart {
+	margin-top: 15px;
+}
+#jcart, #jcart-tooltip { font-size:12px; }
+
+#jcart input[type=text]{
+	width: 26px;
+	height: 25px;
+	margin: 0px;
+	margin-right: 4px;
+	padding: 0px;
+	text-align: center;
+	color: #000;
+	border: 1px solid #a6a7a9;
+	-webkit-border-radius: 5px;
+	-moz-border-radius: 5px;
+	-ms-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#jcart fieldset { border:0; }
+
+#jcart-error { text-align:center; padding:5px; }
+
+#jcart table { width:100%; border:0; border-collapse:collapse; }
+#jcart thead {  }
+#jcart-title {  }
+#jcart tbody { background-color: #FFF;  } 
+#jcart tfoot {  }
+#jcart tr {  }
+#jcart td { padding:5px; border:0; border-right: 1px solid #dcdcdc; border-left: 1px solid #dcdcdc; vertical-align:middle; text-align:left; font-weight:normal; }
+
+#jcart thead tr th{
+	padding: 5px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	background-repeat: repeat-x;
+	background-position: 0 0;
+	background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ac1318), color-stop(100%, #620304));
+	background-image: -webkit-linear-gradient(#ac1318, #620304);
+	background-image: -moz-linear-gradient(#ac1318, #620304);
+	background-image: -o-linear-gradient(#ac1318, #620304);
+	background-image: linear-gradient(#ac1318,#620304);
+	-webkit-border-radius: 8px 8px 0 0;
+	-moz-border-radius: 8px 8px 0 0;
+	-ms-border-radius: 8px 8px 0 0;
+	-o-border-radius: 8px 8px 0 0;
+	border-radius: 8px 8px 0 0;
+	text-shadow: rgba(0,0,0,0.2) 0px -1px 0;
+}
+
+#jcart tfoot tr th{
+	padding: 5px;
+	height: 30px;
+	font-size: 12px;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	background-repeat: repeat-x;
+	background-position: 0 0;
+	background: url(../images/fondo.png) no-repeat 0px 0px;
+	border: 0;
+}
+
+#jcart #jcart-empty { text-align:center; }
+
+.jcart-item-qty { width:25%; }
+#jcart .jcart-item-name { width:50%; font-weight:bold; }
+#jcart .jcart-item-price { width:25%; font-weight:bold; text-align:right; }
+.jcart-item-price span { display:block; }
+
+.jcart-remove {  }
+
+#jcart-subtotal { display:block; }
+#jcart-subtotal strong {  }
+
+#jcart-buttons input { padding:2px; margin:2px; }
+
+#jcart-checkout { float:right; padding:2px; }
+
+#jcart-paypal-checkout { display:block; width:14em; padding:10px; margin:20px auto; }
+
+#jcart-tooltip { display:none; position:absolute; padding:3px 7px 3px 25px; background:url(../images/checkmark.png) 3px center no-repeat #fdfdfd; border:1px solid #a6c9e2; z-index:9999; }

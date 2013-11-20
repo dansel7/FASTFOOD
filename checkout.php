@@ -1,45 +1,16 @@
 	<?
 		require_once("includes/header.php");
 	?>
-error_reporting(0);
 
 	<body class="sunfire">
-	<div id="fb-root"></div>
-	<script>
-		(function(d, s, id) {
-		  var js, fjs = d.getElementsByTagName(s)[0];
-		  if (d.getElementById(id)) return;
-		  js = d.createElement(s); js.id = id;
-		  js.src = "//connect.facebook.net/es_LA/all.js#xfbml=1&appId=177560402279128";
-		  fjs.parentNode.insertBefore(js, fjs);
-		}(document, 'script', 'facebook-jssdk'));
-	</script>
-		<?
-			if(isset($_SESSION['login_costumer_user']) and $_SESSION['login_costumer_user']==true){
-				if($_SESSION['costumer_sex'] == 'F'){
-					$message_show = "Bienvenida " . $_SESSION['costumer_name'];
-				}else{
-					$message_show = "Bienvenido " . $_SESSION['costumer_name'];
-				}
-				?>
-					<div id="colorpicker" class="carshop" style="display: inline-block; height: 30px;">
-						<a href="#" id="btnShop"  class="carshop"/>Carrito de Compras</a>
-						<span style="text-align: center; color: #FFF; display: block; margin-top: 10px;"><?=$message_show?></span>
-						<div id="jcart"><?php $jcart->display_cart();?></div>
-					</div>
-				<?
-			}
-		?>
-		
 		
 		<a id="Top"></a>
 		<div id="nav">
 			<div id="navitems">
 				<div id="logo"><a href="/"><img src="images/logo.png"></a></div>
 				<ul>
-					<li><a href="#Menu">Menu</a></li>
+					<li><a href="/">Inicio</a></li>
 					<li><a href="#Specials">Especiales</a></li>
-					
 					<?
 						if(isset($_SESSION['login_costumer_user']) and $_SESSION['login_costumer_user']==true){
 							?>
@@ -61,20 +32,84 @@ error_reporting(0);
 							?><li><a href="login.php" class="login fancybox.iframe">Login</a></li><?
 						}
 					?>
-					
 				</ul>
 			</div>
 		</div>
 		<div id="allconent">
 			<div class="contentsection" id="header" style="background:url(images/f1image.jpg) 50% 0 no-repeat; height:645px;">
 				<div class="content">
-					<!--<div id="floater">
-						<img src="images/floater.png" />
-					</div>-->
-					<h2>M&aacute;s de 20 tipos de comida y bebida</h2>
-					<h1>TODO PERFECTAMENTE <br/>AL CARBON</h1>
-					<p>Puedes disfrutar de los exquisitos platillos preparados unicamente en el mejor lugar y a domicilio. <a href="#">Realiza tu pedido mediante nuestra p&aacute;gina web ahora!</a></p>
-					<p><a href="#Menu" class="button"/>Ver Men&uacute; &rsaquo;</a></p>
+					<?
+						if(isset($_SESSION['login_costumer_user']) and $_SESSION['login_costumer_user']==true){
+							if($_SESSION['costumer_sex'] == 'F'){
+								$message_show = "Bienvenida " . $_SESSION['costumer_name'];
+							}else{
+								$message_show = "Bienvenido " . $_SESSION['costumer_name'];
+							}
+							?>
+								<div id="content" style="width: 200px; margin: 0 auto;">
+									<span style="text-align: center; color: #FFF; display: block; margin-top: 10px;">
+										<?=$message_show?>
+									</span>
+									<div id="jcart"><?php $jcart->display_cart();?></div>
+									<p><a href="#Menu">&larr; Continuar Comprando</a></p>
+								</div>
+							<?
+						}else{
+							?>
+								 <style type="text/css">
+									label{
+										display:block;
+										margin-top:10px;
+										letter-spacing:1px;
+										color: #FFF;
+									}
+									.formulario {
+										display:block;
+										margin:0 auto;
+										width: 400px;
+										color: #666666;
+										font-family:Arial;
+									}
+									form {
+										margin:0 auto;
+										width:390px;
+									}
+									 
+									input {
+										width:380px;
+										height:20px;
+										background:#666666;
+										border:2px solid #f6f6f6;
+										padding:5px;
+										margin-top:5px;
+										font-size:10px;
+										color:#ffffff;
+									}
+									 
+									#submit {
+										width:85px;
+										height:35px;
+										border:none;
+										margin-top:10px;
+										cursor:pointer;
+										background: #e3553c;
+									}
+
+								 </style>
+								 <section class="formulario">
+									<form action="login.php" method="post">
+										 <label for="email">Email:</label>
+										 <input id="email" type="email" name="email" placeholder="ejemplo@correo.com" required="" />
+										 <label for="email">Contrase&ntilde;a:</label>
+										 <input id="password" type="password" name="password" required="" />
+										 <input id="submit" type="submit" name="submit" value="Ingresar" />
+										 <div style="clear: both;"></div>
+										 <a class="register_nu" href="registro.php" style="float: right; color: #FFF;">Registrarme</a>
+									</form>
+								 </section>
+							<?
+						}
+					?>
 				</div>
 			</div>
 			
@@ -128,8 +163,6 @@ error_reporting(0);
 																					<?
 																				}
 																			?>
-																			
-																			
 																		</form>
 																	</div>
 																</div>
@@ -208,108 +241,7 @@ error_reporting(0);
 					</div>
 				</div>
 			</div>
-			
-			<!--
-			<a id="Careers"></a>
-			<div class="contentsection gray">
-				<div class="content">
-					<h1>Careers</h1>
-					<p class="callout">Duis ante mi, laoreet ut, commodo eleifend, cursus nec, lorem.</p><br><br>
-					<div class="clearfix">
-						<div class="jobtable">
-							<p class="jobtitle">Servers</p>
-							<p class="job">We need servers who can deliver food to tables efficiently.</p>
-							<ul> 
-								<li>2 Positions</li>
-							</ul>
-							<div class="apply">
-								<div class="wbutton">
-									<a href="#">Apply Now</a>
-								</div>
-							</div>
-						</div>
-						<div class="jobtable">
-							<p class="jobtitle">Hosts</p>
-							<p class="job">Join our team of hosts with your welcoming smile and charm.</p>
-							<ul>
-								<li>4 Positions</li>
-							</ul>
-							<div class="apply">
-								<div class="wbutton">
-									<a href="#">Apply Now</a>
-								</div>
-							</div>
-						</div> 
-						<div class="jobtable">
-							<p class="jobtitle">Chefs</p>
-							<p class="job">Prepare food with our team of world renown chefs.</p>
-							<ul>
-								<li>2 Positions</li>
-							</ul>
-							<div class="apply">
-								<div class="wbutton">
-									<a href="#">Apply Now</a>
-								</div>
-							</div>
-						</div>
-						<div class="jobtable">
-							<p class="jobtitle">Bartenders</p>
-							<p class="job">Can you make a mean manhattan? Join our team and flex your talent.</p>
-							<ul>
-								<li>5 Positions</li>
-							</ul>
-							<div class="apply">
-								<div class="wbutton">
-									<a href="#">Apply Now</a>
-								</div>
-							</div>
-						</div>
-					</div><br>
-				</div>
-				<div class="falloff">
-					<img src="images/owners.jpg"><img src="images/pic1.jpg"><img src="images/pic2.jpg">
-				</div>
-			</div>
-			
-			<a id="Events"></a>
-			<div class="contentsection dark" style="background:url(images/mastimage.jpg) 50% 50px no-repeat;">
-				<div class="content">
-					<div class="stage">
-						<h1>Eventos</h1>
-						<p class="callout">Tag your instagram photos with hashtag #ironbull to appear in our album! We will look over them and add your picture to our site!</p><br>
-						<div id="contentright">
-							<div id="slideshow" class="flexslider">
-								<ul class="slides">
-									<li><img alt="project" src="images/fun1.jpg" class="roid"/>
-										<p class="flex-caption">New Year's Eve 2012</p>
-									</li>
-									<li>
-										<img alt="project" src="images/fun2.jpg" class="roid"/>
-										<p class="flex-caption">Letting the good times roll.</p>
-									</li>
-									<li>
-										<img alt="project" src="images/fun3.jpg" class="roid"/>
-										<p class="flex-caption">Cinco De Mayo 2012</p>
-									</li>
-									<li>
-										<img alt="project" src="images/fun4.jpg" class="roid"/>
-										<p class="flex-caption">Random Night</p>
-									</li>
-									<li>
-										<img alt="project" src="images/fun5.jpg" class="roid"/>
-										<p class="flex-caption">Buy your Mom a draft night.</p>
-									</li>
-								</ul>
-							</div>
-							<div class="polaroid">
-								<img class="tape" src="images/tapel.png">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			-->
-			
+
 			<a id="Locations"></a>
 			<div class="contentsection beige">
 				<div class="content">
@@ -321,9 +253,6 @@ error_reporting(0);
 							<div class="fb-like" data-href="http://fastfoodes.net23.net/" data-width="140" data-colorscheme="light" data-layout="box_count" data-action="recommend" data-show-faces="false" data-send="true"></div>
 							<a href="https://twitter.com/share" class="twitter-share-button" data-url="http://fastfoodes.net23.net/" data-via="HuguitoBox" data-lang="es" data-size="large" data-hashtags="fastfoodUDB">Twittear</a>
 							<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
-							<!--<h3>Chat Online</h3>
-							<p>Despeja tus dudas o haznos tus comentarios a trav&eacute;s de nuestro personal de servicio al cliente</p>
-							<p class="telephone"><a href="#" class="button ">Chat Online</a></p>-->
 						</div>
 						<div class="locationitem clearfix" data-lat="25.794945" data-long="-80.224972">
 							<h3>Comun&iacute;cate con nosotros</h3>
@@ -344,7 +273,14 @@ error_reporting(0);
 				<div id="footercontent">
 					<div class="clearfix">
 						<div class="content">
-							<p>¿Disfrutastes nuestro sitio interactivo?. Ahora prueba nuestros productos!! &nbsp;&nbsp;&nbsp;<a class="button anchor" href="#Top">Subir</a></p>
+							<p>We hoped you had fun on our interactive site. Now come try our food! &nbsp;&nbsp;&nbsp;<a class="button anchor" href="#Top">Back to Top</a></p>
+						</div>
+						<div id="socialmedia">
+							<ul>
+								<li class="twitter"><a href="#"><img src="images/twitter.png"></a></li>
+								<li class="facebook"><a href="#"><img src="images/facebook.png"></a></li>
+								<li class="vimeo"><a href="#"><img src="images/vimeo.png"></a></li>
+							</ul>
 						</div>
 					</div>
 					<p class="copyright">&copy; Copyright Universidad Don Bosco 2013</p>
